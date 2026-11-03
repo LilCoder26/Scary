@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ogaly-bogely-boo</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      background: url("background.png") center / cover fixed no-repeat;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Light overlay keeps the text readable over the background */
+    .message {
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.88);
+      color: #111;
+      font-size: clamp(2rem, 8vw, 5rem);
+      font-weight: bold;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .message.visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="message" id="message" aria-live="polite"></main>
+
+  <script>
+    window.addEventListener("load", () => {
+      const message = document.getElementById("message");
+      message.textContent = "Ogaly-bogely-boo";
+      message.classList.add("visible");
+    });
+  </script>
+</body>
+</html>
